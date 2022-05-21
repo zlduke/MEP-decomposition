@@ -26,17 +26,17 @@ Nitr = 7;
 
 [MUAP,record_MSE] = get_MUAP(MEP, v_init, Nitr);
 figure(2);
-plot(record_MSE,'sk-');
-title('MUAP-learning process');
-xlabel('Iteration');
-ylabel('MSE of reconsruction');
-set(gcf,'position',[200,200,500,200]);
+	plot(record_MSE,'sk-');
+	title('MUAP-learning process');
+	xlabel('Iteration');
+	ylabel('MSE of reconsruction');
+	set(gcf,'position',[200,200,500,200]);
 
 figure(3);hold on;
-plot((1:80)*0.2,MUAP,'k');
-title('Leanred MUAP');
-xlabel('Time (ms)');
-set(gcf,'position',[200,200,500,200]);
+	plot((1:80)*0.2,MUAP,'k');
+	title('Learned MUAP');
+	xlabel('Time (ms)');
+	set(gcf,'position',[200,200,500,200]);
 
 %%  Decomposition & reconstruction
 [~,MEP_est,Vpp_est] = get_decomp(MEP, MUAP);
@@ -56,23 +56,23 @@ end
 
 figure(4);
 subplot(1,2,1); hold on;
-hold on;box on;grid on;
-scatter(STI(idx_sort),Vpp_est(idx_sort),'ko','filled');
-scatter(unique_STI,M_Vpp_est,'rs','filled');
-title('Vpp from resconstructed')
-xlabel('Stimulation strength (%)');
-set(gca,'yscale','log');
-ylabel('Vpp (est) (\mu{V})')
-ylim([1e-1,1e4]);
+	hold on;box on;grid on;
+	scatter(STI(idx_sort),Vpp_est(idx_sort),'ko','filled');
+	scatter(unique_STI,M_Vpp_est,'rs','filled');
+	title('Vpp from resconstructed')
+	xlabel('Stimulation strength (%)');
+	set(gca,'yscale','log');
+	ylabel('Vpp (est) (\mu{V})')
+	ylim([1e-1,1e4]);
 
 subplot(1,2,2)
-hold on;box on;grid on;
-scatter(STI(idx_sort),Vpp_raw(idx_sort),'ko','filled');
-scatter(unique_STI,M_Vpp_raw,'rs','filled');
-title('Vpp from raw MEP')
-xlabel('Stimulation strength (%)');
-set(gca,'yscale','log');
-ylabel('Vpp (est) (\mu{V})')
-ylim([1e-1,1e4]);
-set(gcf,'position',[100,100,800,350]);
+	hold on;box on;grid on;
+	scatter(STI(idx_sort),Vpp_raw(idx_sort),'ko','filled');
+	scatter(unique_STI,M_Vpp_raw,'rs','filled');
+	title('Vpp from raw MEP')
+	xlabel('Stimulation strength (%)');
+	set(gca,'yscale','log');
+	ylabel('Vpp (est) (\mu{V})')
+	ylim([1e-1,1e4]);
+	set(gcf,'position',[100,100,800,350]);
 
